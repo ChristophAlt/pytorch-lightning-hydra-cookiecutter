@@ -30,6 +30,7 @@ seaborn = "*"
 jupyterlab = "*"
 
 [dev-packages]
+pre-commit = "*"
 pytest = "*"
 pudb = "*"
 sh = "*"

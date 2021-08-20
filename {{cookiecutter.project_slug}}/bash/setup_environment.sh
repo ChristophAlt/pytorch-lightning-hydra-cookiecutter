@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run from root folder with: bash bash/install_pytorch.sh
+# Run from root folder with: bash bash/setup_conda.sh
 
 # check if conda is installed
 if ! command -v conda &> /dev/null
@@ -8,9 +8,18 @@ then
     exit
 fi
 
+# This line is needed for enabling conda env activation
+source ~/miniconda3/etc/profile.d/conda.sh
+
 # Configure conda env
+read -rp "Enter environment name: " env_name
+read -rp "Enter python version (recommended '3.9') " python_version
 read -rp "Enter cuda version (recommended '10.2', or 'none' for CPU only): " cuda_version
 read -rp "Enter pytorch version (recommended '1.9.0'): " pytorch_version
+
+# Create conda env
+conda create -y -n "$env_name" python="$python_version"
+conda activate "$env_name"
 
 # Install pytorch
 if [ "$cuda_version" == "none" ]; then
@@ -18,3 +27,9 @@ if [ "$cuda_version" == "none" ]; then
 else
     conda install -y pytorch=$pytorch_version torchvision torchaudio cudatoolkit=$cuda_version -c pytorch -c nvidia
 fi
+
+pipenv --python=$(conda run which python) --site-packages
+
+echo "\n"
+echo "To activate this environment, use:"
+echo "pipenv shell"

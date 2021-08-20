@@ -31,6 +31,9 @@ git init
 # Install dependencies
 pipenv install --dev
 
+# Activate virtualenv
+pipenv shell
+
 # Install pytorch
 bash bash/install_pytorch.sh
 
@@ -41,5 +44,5 @@ pipenv run pre-commit install -t pre-push
 
 # Appreciation
 This template is largely based on the following projects:
-- Python Best Practices Cookiecutter template from Sourcery AI [[Link]](https://github.com/sourcery-ai/python-best-practices-cookiecutter)
-- Lightning-Hydra-Template developed by ashleve [[Link]](https://github.com/ashleve/lightning-hydra-template)
+- Python Best Practices Cookiecutter template by Sourcery AI [[Link]](https://github.com/sourcery-ai/python-best-practices-cookiecutter)
+- Lightning-Hydra-Template by ashleve [[Link]](https://github.com/ashleve/lightning-hydra-template)
