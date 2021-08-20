@@ -1,0 +1,14 @@
+{
+	"project_name": "Pytorch Lightning Hydra Template",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+  "author_name": "Christoph Alt",
+  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+  "version": "0.1.0",
+  "open_source_license": [
+    "MIT",
+    "BSD",
+    "GPLv3",
+    "Apache Software License 2.0",
+    "Not open source"
+  ]
+}
