@@ -12,8 +12,8 @@ def main(config: DictConfig):
 
     # Imports should be nested inside @hydra.main to optimize tab completion
     # Read more here: https://github.com/facebookresearch/hydra/issues/934
-    from {{cookiecutter.repo_name}}.train import train
-    from {{cookiecutter.repo_name}}.utils import utils
+    from {{cookiecutter.project_slug}}.train import train
+    from {{cookiecutter.project_slug}}.utils import utils
 
     # A couple of optional utilities:
     # - disabling python warnings

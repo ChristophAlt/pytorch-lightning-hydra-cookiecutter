@@ -26,7 +26,7 @@ to your `README.md`.
 -->
 
 ## 📌&nbsp;&nbsp;Introduction
-This template tries to be as general as possible - you can easily delete any unwanted features from the pipeline or rewire the configuration, by modifying behavior in [{{cookiecutter.repo_name}}/train.py]({{cookiecutter.repo_name}}/train.py).
+This template tries to be as general as possible - you can easily delete any unwanted features from the pipeline or rewire the configuration, by modifying behavior in [{{cookiecutter.project_slug}}/train.py]({{cookiecutter.project_slug}}/train.py).
 
 > Effective usage of this template requires learning of a couple of technologies: [PyTorch](https://pytorch.org), [PyTorch Lightning](https://www.pytorchlightning.ai) and [Hydra](https://hydra.cc). Knowledge of some experiment logging framework like [Weights&Biases](https://wandb.com), [Neptune](https://neptune.ai) or [MLFlow](https://mlflow.org) is also recommended.
 
@@ -49,7 +49,7 @@ It makes your code neatly organized and provides lots of useful features, like a
 ## Main Ideas Of This Template
 - **Predefined Structure**: clean and scalable so that work can easily be extended and replicated (see [#Project Structure](#project-structure))
 - **Rapid Experimentation**: thanks to automating pipeline with config files and hydra command line superpowers (see [#Your Superpowers](#your-superpowers))
-- **Little Boilerplate**: so pipeline can be easily modified (see [{{cookiecutter.repo_name}}/train.py]({{cookiecutter.repo_name}}/train.py))
+- **Little Boilerplate**: so pipeline can be easily modified (see [{{cookiecutter.project_slug}}/train.py]({{cookiecutter.project_slug}}/train.py))
 - **Main Configuration**: main config file specifies default training configuration (see [#Main Project Configuration](#main-project-configuration))
 - **Experiment Configurations**: stored in a separate folder, they can be composed out of smaller configs, override chosen parameters or define everything from scratch (see [#Experiment Configuration](#experiment-configuration))
 - **Workflow**: comes down to 4 simple steps (see [#Workflow](#workflow))
@@ -94,7 +94,7 @@ The directory structure of new project looks like this:
 │   ├── shell                   <- Shell/command based tests
 │   └── unit                    <- Unit tests
 │
-├── {{cookiecutter.repo_name}}
+├── {{cookiecutter.project_slug}}
 │   ├── callbacks               <- Lightning callbacks
 │   ├── datamodules             <- Lightning datamodules
 │   ├── models                  <- Lightning models
@@ -397,7 +397,7 @@ Have a question? Found a bug? Missing a specific feature? Ran into a problem? Fe
 ### How it works
 By design, every run is initialized by [run.py](run.py) file. All PyTorch Lightning modules are dynamically instantiated from module paths specified in config. Example model config:
 ```yaml
-_target_: {{cookiecutter.repo_name}}.models.mnist_model.MNISTLitModel
+_target_: {{cookiecutter.project_slug}}.models.mnist_model.MNISTLitModel
 input_size: 784
 lin1_size: 256
 lin2_size: 256
@@ -411,7 +411,7 @@ model = hydra.utils.instantiate(config.model)
 ```
 This allows you to easily iterate over new models!<br>
 Every time you create a new one, just specify its module path and parameters in appriopriate config file. <br>
-The whole pipeline managing the instantiation logic is placed in [{{cookiecutter.repo_name}}/train.py]({{cookiecutter.repo_name}}/train.py).
+The whole pipeline managing the instantiation logic is placed in [{{cookiecutter.project_slug}}/train.py]({{cookiecutter.project_slug}}/train.py).
 
 <br>
 
@@ -529,7 +529,7 @@ trainer:
     gradient_clip_val: 0.5
 
 model:
-    _target_: {{cookiecutter.repo_name}}.models.mnist_model.MNISTLitModel
+    _target_: {{cookiecutter.project_slug}}.models.mnist_model.MNISTLitModel
     lr: 0.001
     weight_decay: 0.00005
     input_size: 784
@@ -539,7 +539,7 @@ model:
     output_size: 10
 
 datamodule:
-    _target_: {{cookiecutter.repo_name}}.datamodules.mnist_datamodule.MNISTDataModule
+    _target_: {{cookiecutter.project_slug}}.datamodules.mnist_datamodule.MNISTDataModule
     data_dir: ${data_dir}
     train_val_test_split: [55_000, 5_000, 10_000]
     batch_size: 64
@@ -559,8 +559,8 @@ logger:
 <br>
 
 ### Workflow
-1. Write your PyTorch Lightning model (see [mnist_model.py]({{cookiecutter.repo_name}}/models/mnist_model.py) for example)
-2. Write your PyTorch Lightning datamodule (see [mnist_datamodule.py]({{cookiecutter.repo_name}}/datamodules/mnist_datamodule.py) for example)
+1. Write your PyTorch Lightning model (see [mnist_model.py]({{cookiecutter.project_slug}}/models/mnist_model.py) for example)
+2. Write your PyTorch Lightning datamodule (see [mnist_datamodule.py]({{cookiecutter.project_slug}}/datamodules/mnist_datamodule.py) for example)
 3. Write your experiment config, containing paths to your model and datamodule
 4. Run training with chosen experiment config: `python run.py experiment=experiment_name`
 <br>
@@ -612,7 +612,7 @@ These tools help you keep track of hyperparameters and output metrics and allow 
  ```
 You can use many of them at once (see [configs/logger/many_loggers.yaml](configs/logger/many_loggers.yaml) for example).<br>
 You can also write your own logger.<br>
-Lightning provides convenient method for logging custom metrics from inside LightningModule. Read the docs [here](https://pytorch-lightning.readthedocs.io/en/latest/extensions/logging.html#automatic-logging) or take a look at [MNIST example]({{cookiecutter.repo_name}}/models/mnist_model.py).
+Lightning provides convenient method for logging custom metrics from inside LightningModule. Read the docs [here](https://pytorch-lightning.readthedocs.io/en/latest/extensions/logging.html#automatic-logging) or take a look at [MNIST example]({{cookiecutter.project_slug}}/models/mnist_model.py).
 <br><br>
 
 
@@ -698,7 +698,7 @@ The following is example of loading model from checkpoint and running prediction
 from PIL import Image
 from torchvision import transforms
 
-from {{cookiecutter.repo_name}}.models.mnist_model import MNISTLitModel
+from {{cookiecutter.project_slug}}.models.mnist_model import MNISTLitModel
 
 
 def predict():
@@ -809,7 +809,7 @@ List of extra utilities available in the template:
 - debug mode
 <!-- - (TODO) resuming latest run -->
 
-You can easily remove any of those by modifying [run.py](run.py) and [{{cookiecutter.repo_name}}/train.py]({{cookiecutter.repo_name}}/train.py).
+You can easily remove any of those by modifying [run.py](run.py) and [{{cookiecutter.project_slug}}/train.py]({{cookiecutter.project_slug}}/train.py).
 <br><br>
 
 <!--

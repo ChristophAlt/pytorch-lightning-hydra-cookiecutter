@@ -4,7 +4,7 @@ import torch
 from pytorch_lightning import LightningModule
 from torchmetrics.classification.accuracy import Accuracy
 
-from {{cookiecutter.repo_name}}.models.modules.simple_dense_net import SimpleDenseNet
+from {{cookiecutter.project_slug}}.models.modules.simple_dense_net import SimpleDenseNet
 
 
 class MNISTLitModel(LightningModule):

@@ -1,4 +1,4 @@
-_target_: {{cookiecutter.repo_name}}.models.mnist_model.MNISTLitModel
+_target_: {{cookiecutter.project_slug}}.models.mnist_model.MNISTLitModel
 
 input_size: 784
 lin1_size: 256

@@ -4,4 +4,4 @@
 # ... except for dependencies and source
 !Pipfile
 !Pipfile.lock
-!{{cookiecutter.repo_name}}
+!{{cookiecutter.project_slug}}
