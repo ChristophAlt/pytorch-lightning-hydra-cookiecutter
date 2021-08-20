@@ -1,7 +1,5 @@
 # Python PyTorch Lightning Hydra Cookiecutter
 
-Best practices [cookiecutter](https://github.com/audreyr/cookiecutter) template as described in this [blogpost](https://sourcery.ai/blog/python-best-practices/).
-
 ## Features
 - Testing with [pytest](https://docs.pytest.org/en/latest/)
 - Formatting with [black](https://github.com/psf/black)
