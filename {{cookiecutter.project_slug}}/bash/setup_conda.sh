@@ -12,8 +12,8 @@ fi
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Configure conda env
-read -rp "Enter environment name [{{cookiecutter.project_slug}}]: " env_name
-env_name=${env_name:-{{cookiecutter.project_slug}}}
+read -rp "Enter environment name [src]: " env_name
+env_name=${env_name:-src}
 
 read -rp "Enter python version [3.9]:" python_version
 python_version=${python_version:-3.9}
@@ -32,7 +32,7 @@ conda activate "$env_name"
 if [ "$cuda_version" == "none" ]; then
     conda install -y pytorch=$pytorch_version torchvision torchaudio cpuonly -c pytorch
 else
-    conda install -y pytorch=$pytorch_version torchvision torchaudio cudatoolkit=$cuda_version -c pytorch
+    conda install -y pytorch=$pytorch_version torchvision torchaudio cudatoolkit=$cuda_version -c pytorch -c nvidia
 fi
 
 echo "\n"

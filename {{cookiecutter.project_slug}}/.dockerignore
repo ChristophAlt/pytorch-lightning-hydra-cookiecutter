@@ -4,4 +4,4 @@
 # ... except for dependencies and source
 !Pipfile
 !Pipfile.lock
-!{{cookiecutter.project_slug}}
+!src

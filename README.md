@@ -28,8 +28,11 @@ cd <repo_name>
 # Initialise git repo
 git init
 
-# [OPTIONAL] create conda environment
+# [OPTIONAL] Create conda environment
 bash bash/setup_conda.sh
+
+# Activate conda environment
+conda activate <env_name>
 
 # install requirements
 pip install -r requirements.txt

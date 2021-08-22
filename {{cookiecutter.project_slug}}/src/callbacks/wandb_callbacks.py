@@ -180,8 +180,8 @@ class LogF1PrecRecHeatmap(Callback):
     """
 
     def __init__(self, class_names: List[str] = None):
-        self.preds = []
-        self.targets = []
+        self.preds: List[torch.Tensor] = []
+        self.targets: List[torch.Tensor] = []
         self.ready = True
 
     def on_sanity_check_start(self, trainer, pl_module):

@@ -99,3 +99,5 @@ def train(config: DictConfig) -> Optional[float]:
     optimized_metric = config.get("optimized_metric")
     if optimized_metric:
         return trainer.callback_metrics[optimized_metric]
+
+    return None
