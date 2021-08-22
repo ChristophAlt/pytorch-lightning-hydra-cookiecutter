@@ -12,8 +12,8 @@ fi
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Configure conda env
-read -rp "Enter environment name [src]: " env_name
-env_name=${env_name:-src}
+read -rp "Enter environment name [{{cookiecutter.project_slug}}]: " env_name
+env_name=${env_name:-{{cookiecutter.project_slug}}}
 
 read -rp "Enter python version [3.9]:" python_version
 python_version=${python_version:-3.9}

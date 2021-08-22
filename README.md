@@ -16,9 +16,6 @@
 python3 -m pip install pipx
 python3 -m pipx ensurepath
 
-# Install pipenv using pipx
-pipx install pipenv
-
 # Use cookiecutter to create project from this template
 pipx run cookiecutter gh:christophalt/pytorch-lightning-hydra-cookiecutter
 
