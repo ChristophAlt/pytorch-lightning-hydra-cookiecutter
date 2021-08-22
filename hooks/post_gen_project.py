@@ -5,8 +5,7 @@ import sys
 def set_python_version():
     python_version = str(sys.version_info.major) + "." + str(sys.version_info.minor)
 
-    # file_names = ["Dockerfile", "Pipfile", ".github/workflows/test.yml"]
-    file_names = ["Dockerfile", "Pipfile"]
+    file_names = ["Dockerfile"]
     for file_name in file_names:
         with open(file_name) as f:
             contents = f.read()
