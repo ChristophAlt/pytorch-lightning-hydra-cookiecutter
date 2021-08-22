@@ -28,21 +28,18 @@ cd <repo_name>
 # Initialise git repo
 git init
 
-# Install dependencies
-pipenv install --dev
+# [OPTIONAL] create conda environment
+bash bash/setup_conda.sh
 
-# Activate virtualenv
-pipenv shell
-
-# Install pytorch
-bash bash/install_pytorch.sh
+# install requirements
+pip install -r requirements.txt
 
 # Setup pre-commit and pre-push hooks
-pipenv run pre-commit install -t pre-commit
-pipenv run pre-commit install -t pre-push
+pre-commit install -t pre-commit
+pre-commit install -t pre-push
 ```
 
 # Appreciation
 This template is largely based on the following projects:
-- Python Best Practices Cookiecutter template by Sourcery AI [[Link]](https://github.com/sourcery-ai/python-best-practices-cookiecutter)
-- Lightning-Hydra-Template by ashleve [[Link]](https://github.com/ashleve/lightning-hydra-template)
+- Python Best Practices Cookiecutter template by Sourcery AI [[LINK]](https://github.com/sourcery-ai/python-best-practices-cookiecutter)
+- Lightning-Hydra-Template by ashleve [[LINK]](https://github.com/ashleve/lightning-hydra-template)
